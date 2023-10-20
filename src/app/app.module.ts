@@ -12,9 +12,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import { LoginComponent } from './components/login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -28,6 +30,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     MatDialogModule,
     MatDividerModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
