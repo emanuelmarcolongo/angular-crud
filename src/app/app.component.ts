@@ -38,11 +38,17 @@ export class AppComponent implements OnInit {
       this.user = authenticatedUser;
     }
 
-    this.users?.push(this.createUser);
-    localStorage.setItem('Users', JSON.stringify(this.users));
+    const isUserRegistered = this.users?.some(
+      (user) => user.email === authenticatedUser.email
+    );
+
+    if (!isUserRegistered) {
+      this.users?.push(this.createUser);
+      localStorage.setItem('Users', JSON.stringify(this.users));
+    }
   }
 
-  fazerLogin(user: any) {
+  userLogin(user: any) {
     const userExists: any | undefined = this.users?.find(
       (u) => u.email === user.email && user.password === u.password
     );

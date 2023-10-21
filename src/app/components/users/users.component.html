@@ -1,0 +1,36 @@
+<div class="p-4 d-flex justify-content-between">
+  <button mat-flat-button color="primary">
+    <mat-icon>add</mat-icon>
+    Novo usuário
+  </button>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4" *ngFor="let user of users">
+        <mat-card class="mb-4">
+          <mat-card-header>
+            <mat-card-title>{{ user.name | uppercase }} </mat-card-title>
+            <mat-card-subtitle>{{ user.job }} </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Data de Nascimento: {{ user.birthDate | date : "dd/MM/yy" }}</p>
+            <p>Email: {{ user.email }}</p>
+            <p>Senha: {{ user.password }}</p>
+            <p>Telefone: {{ user.phone }}</p>
+            <mat-divider></mat-divider>
+            <p>Cep: {{ user.adress.zipCode }}</p>
+            <p>Estado: {{ user.adress.state }}</p>
+            <p>Cidade: {{ user.adress.city }}</p>
+            <p>Rua: {{ user.adress.street }}</p>
+            <p>Numero: {{ user.adress.number }}</p>
+            <p>Bairro: {{ user.adress.neighborhood }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-flat-button color="danger">Excluir</button>
+            <button mat-flat-button color="primary">Editar</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
