@@ -4,19 +4,25 @@
       <mat-card-title> Login </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form class="d-flex flex-column">
+      <form [formGroup]="loginForm" class="d-flex flex-column">
         <mat-form-field appearance="outline">
           <mat-label>E-mail</mat-label>
-          <input matInput [(ngModel)]="email" name="email" />
+          <input matInput formControlName="email" name="email" />
+
+          <mat-error>{{loginForm.controls['email'].errors?.['email'] ? 'Insira um formato de email válido' : loginForm.controls['email'].errors?.['required'] ? 'Campo Obrigatório' : '' }}</mat-error>
+          
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Senha</mat-label>
-          <input matInput [(ngModel)]="password" name="password" />
+          <input matInput formControlName="password" name="password" />
+          <mat-error>
+            {{loginForm.controls['password'].errors?.['required'] ? 'Campo Obrigatório!' : ''}}
+          </mat-error>
+          
         </mat-form-field>
         <button
           mat-flat-button
           color="primary"
-          [disabled]="!email || !password"
           class="w-100"
           (click)="login()"
         >

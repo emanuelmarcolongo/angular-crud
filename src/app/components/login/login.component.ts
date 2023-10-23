@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,12 +8,24 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class LoginComponent {
   @Output() loginEmitter = new EventEmitter<any>();
-  email?: string;
-  password?: string;
-  user?: any;
+  users: any;
+  user: any;
+  loginForm!: FormGroup;
 
-  login(): void {
-    this.user = { email: this.email, password: this.password };
+  constructor() {
+    this.buildLoginForm();
+  }
+
+  buildLoginForm() {
+    this.loginForm = new FormGroup({
+     email: new FormControl(null, [Validators.required, Validators.email]),
+     password: new FormControl(null, [Validators.required])
+    })
+  }
+
+  login() {
+    this.user = {email: this.loginForm.value.email, password: this.loginForm.value.password }
     this.loginEmitter.emit(this.user);
+    console.log(this.loginForm.value)
   }
 }
