@@ -26,6 +26,6 @@ export class LoginComponent {
   login() {
     this.user = {email: this.loginForm.value.email, password: this.loginForm.value.password }
     this.loginEmitter.emit(this.user);
-    console.log(this.loginForm.value)
+    console.log(this.loginForm.value);
   }
 }

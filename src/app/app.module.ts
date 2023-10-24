@@ -16,9 +16,10 @@ import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './components/header/header.component';
 import { UsersComponent } from './components/users/users.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeaderComponent, UsersComponent],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, UsersComponent, CreateUserComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
