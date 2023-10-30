@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { UsersService } from 'src/app/service/users.service';
 
 @Component({
   selector: 'app-create-user',
@@ -17,6 +18,7 @@ export class CreateUserComponent {
   user!: any;
   constructor(
     public dialogRef: MatDialogRef<CreateUserComponent>,
+    public userService: UsersService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     console.log(data);
@@ -46,16 +48,18 @@ export class CreateUserComponent {
   }
 
   addUser() {
-    console.log(this.addUserForm);
-
-    this.user = {
+    const userInfo = {
       name: this.addUserForm.value.name,
       job: this.addUserForm.value.job,
       email: this.addUserForm.value.email,
       password: this.addUserForm.value.password,
       salary: this.addUserForm.value.salary,
+      type: 'User',
     };
-    console.log(this.user);
+
+    this.userService.insertUser(userInfo).subscribe((user: any) => {
+      console.log(user.nome, `inserido com sucesso!`);
+    });
   }
 
   getErrorMessage(controlName: string) {

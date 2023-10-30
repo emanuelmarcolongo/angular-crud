@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "nome": "Emanuel Marcolongo",
+      "name": "Emanuel Marcolongo",
       "email": "email@123.com",
       "type": "ADMIN",
       "password": "123",
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "nome": "Ana Silva",
+      "name": "Ana Silva",
       "email": "ana@email.com",
       "type": "USER",
       "password": "456",
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "nome": "Carlos Mendes",
+      "name": "Carlos Mendes",
       "email": "carlos@email.com",
       "type": "USER",
       "password": "789",
@@ -29,12 +29,63 @@
     },
     {
       "id": 4,
-      "nome": "Maria Souza",
+      "name": "Maria Souza",
       "email": "maria@email.com",
       "type": "USER",
       "password": "101112",
       "job": "QA Engineer",
       "salary": "48000"
+    },
+    {
+      "name": "Carlos Mendes",
+      "email": "carlos@email.com",
+      "type": "USER",
+      "password": "789",
+      "job": "Project Manager123",
+      "salary": "60000",
+      "id": 5
+    },
+    {
+      "name": "Carlos Mendes",
+      "email": "carlos@email.com",
+      "type": "USER",
+      "password": "789",
+      "job": "Project Manager123",
+      "salary": "60000",
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "name": "1111Mendes123123123123123",
+      "email": "c111@email.com",
+      "type": "USER",
+      "password": "1111",
+      "job": "11113",
+      "salary": "11111",
+      "id": 9
+    },
+    {
+      "name": "1111",
+      "job": "1111111",
+      "email": "11111@1111",
+      "password": "11111",
+      "salary": "11111",
+      "type": "User",
+      "id": 10
+    },
+    {
+      "name": "1111",
+      "job": "1111111",
+      "email": "11111@1111",
+      "password": "111111111",
+      "salary": "11111",
+      "type": "User",
+      "id": 11
     }
   ]
 }
