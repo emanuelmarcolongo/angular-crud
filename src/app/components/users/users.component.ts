@@ -12,7 +12,7 @@ export class UsersComponent {
   @Input() public user?: any;
   @Input() public users?: any;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private userService: UsersService) {}
 
   openDialogCreateUser() {
     const dialogRef = this.dialog.open(CreateUserComponent, {
@@ -25,6 +25,12 @@ export class UsersComponent {
       if (devolutivaModal) {
         console.log('devolutiva MOdal', devolutivaModal);
       }
+    });
+  }
+
+  deleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe((user: any) => {
+      console.log(user.nome, `deletado com sucesso!`);
     });
   }
 }

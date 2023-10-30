@@ -1,15 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Emanuel Marcolongo",
-      "email": "email@123.com",
-      "type": "ADMIN",
-      "password": "123",
-      "job": "Developer",
-      "salary": "50000"
-    },
-    {
       "id": 2,
       "name": "Ana Silva",
       "email": "ana@email.com",
@@ -55,12 +46,6 @@
       "id": 6
     },
     {
-      "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
       "name": "1111Mendes123123123123123",
       "email": "c111@email.com",
       "type": "USER",
@@ -68,24 +53,6 @@
       "job": "11113",
       "salary": "11111",
       "id": 9
-    },
-    {
-      "name": "1111",
-      "job": "1111111",
-      "email": "11111@1111",
-      "password": "11111",
-      "salary": "11111",
-      "type": "User",
-      "id": 10
-    },
-    {
-      "name": "1111",
-      "job": "1111111",
-      "email": "11111@1111",
-      "password": "111111111",
-      "salary": "11111",
-      "type": "User",
-      "id": 11
     }
   ]
 }

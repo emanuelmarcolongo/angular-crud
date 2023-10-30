@@ -16,4 +16,8 @@ export class UsersService {
   insertUser(body: UserDTO): Observable<any> {
     return this.http.post('http://localhost:3000/users', body);
   }
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:3000/users/${id}`);
+  }
 }
