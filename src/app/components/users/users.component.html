@@ -10,19 +10,13 @@
           <mat-card-header>
             <mat-card-title>{{ user.name | uppercase }} </mat-card-title>
             <mat-card-subtitle>{{ user.job }} </mat-card-subtitle>
+            <p>{{ user.salary }}</p>
           </mat-card-header>
           <mat-card-content>
-            <p>Data de Nascimento: {{ user.birthDate | date : "dd/MM/yy" }}</p>
             <p>Email: {{ user.email }}</p>
             <p>Senha: {{ user.password }}</p>
-            <p>Telefone: {{ user.phone }}</p>
+
             <mat-divider></mat-divider>
-            <p>Cep: {{ user.adress.zipCode }}</p>
-            <p>Estado: {{ user.adress.state }}</p>
-            <p>Cidade: {{ user.adress.city }}</p>
-            <p>Rua: {{ user.adress.street }}</p>
-            <p>Numero: {{ user.adress.number }}</p>
-            <p>Bairro: {{ user.adress.neighborhood }}</p>
           </mat-card-content>
           <mat-card-actions>
             <button mat-flat-button color="danger">Excluir</button>
@@ -32,4 +26,4 @@
       </div>
     </div>
   </div>
-
+</div>

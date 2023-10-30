@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from './service/users.service';
 
 @Component({
   selector: 'app-root',
@@ -10,41 +11,19 @@ export class AppComponent implements OnInit {
   user?: any;
   users?: any[];
 
-  createUser: any = {
-    name: 'Emanuel',
-    job: 'Dev',
-    birthDate: '1997-02-11T00:00:00.000Z',
-    email: 'manu@teste.com',
-    password: '123',
-    phone: '22-998669093',
-    adress: {
-      street: 'jabuti',
-      number: 200,
-      state: 'RJ',
-      city: 'Cabo Frio',
-      neighborhood: 'centro',
-      zipCode: '22222-22',
-    },
-  };
+  constructor(private userService: UsersService) {
+    this.userService.getUsers().subscribe((users: any) => {
+      this.users = users;
+    });
+  }
 
   ngOnInit(): void {
-    this.users = JSON.parse(localStorage.getItem('Users') || '[]');
-
     const authenticatedUser = JSON.parse(
       localStorage.getItem('User') || 'null'
     );
 
     if (authenticatedUser) {
       this.user = authenticatedUser;
-    }
-
-    const isUserRegistered = this.users?.some(
-      (user) => user.email === authenticatedUser.email
-    );
-
-    if (!isUserRegistered) {
-      this.users?.push(this.createUser);
-      localStorage.setItem('Users', JSON.stringify(this.users));
     }
   }
 

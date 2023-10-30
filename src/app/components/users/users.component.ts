@@ -1,36 +1,30 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserComponent } from '../create-user/create-user.component';
+import { UsersService } from 'src/app/service/users.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent {
   @Input() public user?: any;
-  users!: any[];
+  @Input() public users?: any;
 
   constructor(private dialog: MatDialog) {}
-  getUsers(): void {
-    this.users = JSON.parse(localStorage.getItem('Users') || '[]');
-  }
-
-  ngOnInit(): void {
-    this.getUsers();
-  }
 
   openDialogCreateUser() {
     const dialogRef = this.dialog.open(CreateUserComponent, {
-      data: this.user, 
+      data: this.user,
       disableClose: true,
-      width: '80%', 
+      width: '80%',
     });
 
-    dialogRef.afterClosed().subscribe((devolutivaModal:any) => {
-      if(devolutivaModal){
-        console.log('devolutiva MOdal', devolutivaModal)
+    dialogRef.afterClosed().subscribe((devolutivaModal: any) => {
+      if (devolutivaModal) {
+        console.log('devolutiva MOdal', devolutivaModal);
       }
-    })
+    });
   }
 }
