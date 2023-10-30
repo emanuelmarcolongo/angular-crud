@@ -1,124 +1,63 @@
 <h1>MODAL ABERTA</h1>
-<div>
-</div>
-<button mat-flat-button color="secundary" [mat-dialog-close]>Cancelar Form</button>
+<div></div>
+<button mat-flat-button color="secundary" [mat-dialog-close]>
+  Cancelar Form
+</button>
 <button mat-flat-button color="primary">Enviar Form</button>
 
-
 <div class="h-100 bg-primary d-flex justify-content-center align-items-center">
-    <mat-card class="w-100">
-      <mat-card-header class="d-flex justify-content-center mb-3">
-        <mat-card-title> Novo Usuário </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
+  <mat-card class="w-100">
+    <mat-card-header class="d-flex justify-content-center mb-3">
+      <mat-card-title> Novo Usuário </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Dados Pessoais:</p>
+      <form [formGroup]="addUserForm" class="d-flex flex-column">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="name" name="name" />
+            <mat-error>
+              {{addUserForm.controls['name'].errors?.['required'] && getErrorMessage('required')}}
+              {{addUserForm.controls['name'].errors?.['minLenght'] &&  getErrorMessage('minLenght') }}
+              {{addUserForm.controls['name'].errors?.['maxLenght'] &&  getErrorMessage('maxLenght') }}
+            </mat-error>
+          </mat-form-field>
 
-            <p>Dados Pessoais:</p>
-            <form [formGroup]="addUserForm" class="d-flex flex-column">
-                <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Profissão</mat-label>
+            <input matInput formControlName="job" name="job" />
+          </mat-form-field>
 
-               
-              <mat-form-field appearance="outline">
-                <mat-label>Nome</mat-label>
-                <input matInput formControlName="name" name="name" />
-                <mat-error>
-                    {{addUserForm.controls['name'].errors?.['required'] && getErrorMessage('required')}}
-                    {{addUserForm.controls['name'].errors?.['minLenght'] &&  getErrorMessage('minLenght') }}
-                    {{addUserForm.controls['name'].errors?.['maxLenght'] &&  getErrorMessage('maxLenght') }}
-                </mat-error>
-                
-              </mat-form-field>
-    
-              <mat-form-field appearance="outline">
-                <mat-label>Profissão</mat-label>
-                <input matInput formControlName="job" name="job" />
-              </mat-form-field>
-    
-              <mat-form-field appearance="outline">
-                <mat-label>Data de Nascimento</mat-label>
-                <input matInput formControlName="birthdate" name="birthdate" />
-              </mat-form-field>
-    
-              <mat-form-field appearance="outline">
-                <mat-label>E-mail</mat-label>
-                <input matInput formControlName="email" name="email" />
-                  <mat-error>
-                    {{addUserForm.controls['email'].errors?.['required'] && getErrorMessage('required')}}
-                    {{addUserForm.controls['email'].errors?.['email'] &&  getErrorMessage('email') }}
-                  </mat-error>
-              </mat-form-field>
-    
-              <mat-form-field appearance="outline">
-                <mat-label>Senha</mat-label>
-                <input matInput formControlName="password" name="password" />
-              </mat-form-field>
-              
-    
-              <mat-form-field appearance="outline">
-                <mat-label>Telefone</mat-label>
-                <input matInput formControlName="phone" name="phone" />
-             </mat-form-field>
-       
-             <div>
-            </div>
-                <p>Endereço:</p>
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input matInput formControlName="email" name="email" />
+            <mat-error>
+              {{addUserForm.controls['email'].errors?.['required'] && getErrorMessage('required')}}
+              {{addUserForm.controls['email'].errors?.['email'] &&  getErrorMessage('email') }}
+            </mat-error>
+          </mat-form-field>
 
-           
-                <mat-form-field appearance="outline">
-                   <mat-label>CEP</mat-label>
-                   <input matInput formControlName="zipcode" name="zipcode" />
-                </mat-form-field>
-                
-                <mat-form-field appearance="outline">
-                   <mat-label>Rua</mat-label>
-                   <input matInput formControlName="street" name="street" />
-                </mat-form-field>
-                
-                <mat-form-field appearance="outline">
-                   <mat-label>Numero</mat-label>
-                   <input matInput formControlName="number" type="number" name="number" />
-                </mat-form-field>
-                
-                <mat-form-field appearance="outline">
-                   <mat-label>Complemento</mat-label>
-                   <input matInput formControlName="complement" name="complement" />
-                </mat-form-field>
-                
-                <mat-form-field appearance="outline">
-                   <mat-label>Bairro</mat-label>
-                   <input matInput formControlName="neighborhood" name="neighborhood" />
-                </mat-form-field>
-                
-                <mat-form-field appearance="outline">
-                   <mat-label>Cidade</mat-label>
-                   <input matInput formControlName="city" name="city" />
-                </mat-form-field>
-                
-                <mat-form-field appearance="outline">
-                   <mat-label>Estado</mat-label>
-                   <input matInput formControlName="state" name="state" />
-                </mat-form-field>
-       
-                 <mat-form-field appearance="outline">
-                   <mat-label>Senha</mat-label>
-                   <input matInput formControlName="password" name="password" />
-                   <mat-error>
-                     {{addUserForm.controls['password'].errors?.['required'] ? 'Campo Obrigatório!' : ''}}
-                   </mat-error>
-                   
-                 </mat-form-field>
-             </div>
-            
-            
-          <button
-            mat-flat-button
-            color="primary"
-            class="w-100"
-            (click)="addUser()"
-          >
-            Entrar
-          </button>
-        </form>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput formControlName="password" name="password" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Salario</mat-label>
+            <input matInput formControlName="salary" name="salary" />
+          </mat-form-field>
+        </div>
+
+        <button
+          mat-flat-button
+          color="primary"
+          class="w-100"
+          (click)="addUser()"
+        >
+          Entrar
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
