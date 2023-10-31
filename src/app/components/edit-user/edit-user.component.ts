@@ -9,25 +9,25 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UsersService } from 'src/app/service/users.service';
 
 @Component({
-  selector: 'app-create-user',
-  templateUrl: './create-user.component.html',
-  styleUrls: ['./create-user.component.scss'],
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.scss'],
 })
-export class CreateUserComponent {
-  addUserForm!: FormGroup;
+export class EditUserComponent {
+  editUserForm!: FormGroup;
   user!: any;
-  users!: any;
+  id!: number;
   constructor(
-    public dialogRef: MatDialogRef<CreateUserComponent>,
+    public dialogRef: MatDialogRef<EditUserComponent>,
     public userService: UsersService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    console.log(data);
-    this.buildAddUserForm();
+    this.id = data;
+    this.buildEditUserForm();
   }
 
-  buildAddUserForm() {
-    this.addUserForm = new FormGroup({
+  buildEditUserForm() {
+    this.editUserForm = new FormGroup({
       name: new FormControl(null, [
         Validators.required,
         Validators.minLength(2),
@@ -48,18 +48,18 @@ export class CreateUserComponent {
     });
   }
 
-  addUser() {
+  editUser() {
     const userInfo = {
-      name: this.addUserForm.value.name,
-      job: this.addUserForm.value.job,
-      email: this.addUserForm.value.email,
-      password: this.addUserForm.value.password,
-      salary: this.addUserForm.value.salary,
+      name: this.editUserForm.value.name,
+      job: this.editUserForm.value.job,
+      email: this.editUserForm.value.email,
+      password: this.editUserForm.value.password,
+      salary: this.editUserForm.value.salary,
       type: 'User',
     };
 
-    this.userService.insertUser(userInfo).subscribe((user: any) => {
-      console.log(user.nome, `inserido com sucesso!`);
+    this.userService.editUser(this.id, userInfo).subscribe((user: any) => {
+      console.log(user.nome, `modificado com sucesso!`);
     });
   }
 

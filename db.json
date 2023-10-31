@@ -1,15 +1,6 @@
 {
   "users": [
     {
-      "id": 2,
-      "name": "Ana Silva",
-      "email": "ana@email.com",
-      "type": "USER",
-      "password": "456",
-      "job": "Designer",
-      "salary": "45000"
-    },
-    {
       "id": 3,
       "name": "Carlos Mendes",
       "email": "carlos@email.com",
@@ -19,13 +10,13 @@
       "salary": "60000"
     },
     {
-      "id": 4,
-      "name": "Maria Souza",
-      "email": "maria@email.com",
-      "type": "USER",
-      "password": "101112",
-      "job": "QA Engineer",
-      "salary": "48000"
+      "name": "mariaSouza",
+      "job": "123123123",
+      "email": "123123@123",
+      "password": "123123123",
+      "salary": "123123",
+      "type": "User",
+      "id": 4
     },
     {
       "name": "Carlos Mendes",
@@ -35,24 +26,6 @@
       "job": "Project Manager123",
       "salary": "60000",
       "id": 5
-    },
-    {
-      "name": "Carlos Mendes",
-      "email": "carlos@email.com",
-      "type": "USER",
-      "password": "789",
-      "job": "Project Manager123",
-      "salary": "60000",
-      "id": 6
-    },
-    {
-      "name": "1111Mendes123123123123123",
-      "email": "c111@email.com",
-      "type": "USER",
-      "password": "1111",
-      "job": "11113",
-      "salary": "11111",
-      "id": 9
     }
   ]
 }
