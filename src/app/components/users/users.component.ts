@@ -35,7 +35,7 @@ export class UsersComponent {
 
   openDialogEditUser(id: number) {
     const dialogRef = this.dialog.open(EditUserComponent, {
-      data: id,
+      data: { id },
       disableClose: true,
       width: '80%',
     });
@@ -50,6 +50,10 @@ export class UsersComponent {
   deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe((user: any) => {
       console.log(user.nome, `deletado com sucesso!`);
+    });
+
+    this.userService.getUsers().subscribe((users: any) => {
+      this.users = users;
     });
   }
 }

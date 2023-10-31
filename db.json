@@ -10,15 +10,6 @@
       "salary": "60000"
     },
     {
-      "name": "mariaSouza",
-      "job": "123123123",
-      "email": "123123@123",
-      "password": "123123123",
-      "salary": "123123",
-      "type": "User",
-      "id": 4
-    },
-    {
       "name": "Carlos Mendes",
       "email": "carlos@email.com",
       "type": "USER",

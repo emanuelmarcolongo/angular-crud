@@ -20,9 +20,9 @@ export class EditUserComponent {
   constructor(
     public dialogRef: MatDialogRef<EditUserComponent>,
     public userService: UsersService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: { id: number }
   ) {
-    this.id = data;
+    this.id = data.id;
     this.buildEditUserForm();
   }
 
