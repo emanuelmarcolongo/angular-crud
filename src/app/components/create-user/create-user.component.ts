@@ -17,6 +17,14 @@ export class CreateUserComponent {
   addUserForm!: FormGroup;
   user!: any;
   users!: any;
+  userTypes: any = ['Administrador', 'Usuário'];
+  jobOptions: any = [
+    'Front-end Developer',
+    'Back-end Developer',
+    'QA Analyst',
+    'Scrum Master',
+    'Fullstack Developer',
+  ];
   constructor(
     public dialogRef: MatDialogRef<CreateUserComponent>,
     public userService: UsersService,
@@ -39,11 +47,7 @@ export class CreateUserComponent {
         Validators.maxLength(30),
       ]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(12),
-      ]),
+      type: new FormControl(null, [Validators.required]),
       salary: new FormControl(null, [Validators.required]),
     });
   }
@@ -53,10 +57,11 @@ export class CreateUserComponent {
       name: this.addUserForm.value.name,
       job: this.addUserForm.value.job,
       email: this.addUserForm.value.email,
-      password: this.addUserForm.value.password,
       salary: this.addUserForm.value.salary,
-      type: 'User',
+      type: this.addUserForm.value.type,
     };
+
+    console.log(userInfo);
 
     this.userService.insertUser(userInfo).subscribe((user: any) => {
       console.log(user.nome, `inserido com sucesso!`);

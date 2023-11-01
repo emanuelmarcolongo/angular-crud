@@ -9,6 +9,7 @@
         <mat-card class="mb-4">
           <mat-card-header>
             <mat-card-title>{{ user.name | uppercase }} </mat-card-title>
+            <mat-card-subtitle>{{ user.type }} </mat-card-subtitle>
             <mat-card-subtitle>{{ user.job }} </mat-card-subtitle>
             <mat-divider></mat-divider>
           </mat-card-header>
@@ -18,8 +19,6 @@
             <p>
               Salário: {{ user.salary | currency : "BRL" : "symbol" : "1.2-2" }}
             </p>
-
-            <p>Senha: {{ user.password }}</p>
 
             <mat-divider></mat-divider>
           </mat-card-content>
