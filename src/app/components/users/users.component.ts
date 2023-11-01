@@ -15,9 +15,9 @@ export class UsersComponent {
 
   constructor(private dialog: MatDialog, private userService: UsersService) {}
 
-  openDialogCreateUser() {
+  openDialogCreateUser(user?: any) {
     const dialogRef = this.dialog.open(CreateUserComponent, {
-      data: this.user,
+      data: user,
       disableClose: true,
       width: '80%',
     });

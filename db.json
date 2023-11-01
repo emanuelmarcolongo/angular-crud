@@ -1,13 +1,12 @@
 {
   "users": [
     {
-      "id": 3,
-      "name": "Carlos Mendes",
-      "email": "carlos@email.com",
-      "type": "USER",
-      "password": "789",
-      "job": "Project Manager",
-      "salary": "60000"
+      "name": "Carlos Emanuel de Souza Marcolongo",
+      "job": "Front-end Developer",
+      "email": "emanuelmarcolongo@gmail.com",
+      "type": "Administrador",
+      "salary": "123123",
+      "id": 3
     },
     {
       "name": "Carlos Mendes",
@@ -17,6 +16,30 @@
       "job": "Project Manager123",
       "salary": "60000",
       "id": 5
+    },
+    {
+      "name": "Carlos Emanuel de Souza Marcolongo",
+      "job": "Front-end Developer",
+      "email": "emanuelmarcolongo@gmail.com",
+      "type": "Administrador",
+      "salary": "123123",
+      "id": 6
+    },
+    {
+      "name": "Jãozin",
+      "job": "Front-end Developer",
+      "email": "123123@2342",
+      "type": "Usuário",
+      "salary": "123123",
+      "id": 7
+    },
+    {
+      "name": "Carlos Emanuel de Souza Marcolongo",
+      "job": "Front-end Developer",
+      "email": "emanuelmarcolongo@gmail.com",
+      "type": "Administrador",
+      "salary": "55222",
+      "id": 8
     }
   ]
 }

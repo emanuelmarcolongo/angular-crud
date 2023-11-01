@@ -16,8 +16,8 @@ import { UserDTO } from 'src/app/types/user.DTO';
 })
 export class CreateUserComponent {
   addUserForm!: FormGroup;
-  user!: any;
-  users!: any;
+  currentUser!: any;
+  editUser: boolean = false;
   userTypes: any = ['Administrador', 'Usuário'];
   jobOptions: any = [
     'Front-end Developer',
@@ -31,7 +31,14 @@ export class CreateUserComponent {
     public userService: UsersService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    console.log(data);
+    if (data) {
+      this.currentUser = data;
+      this.editUser = true;
+    } else {
+      this.currentUser = null;
+      this.editUser = false;
+    }
+
     this.buildAddUserForm();
   }
 
@@ -59,6 +66,20 @@ export class CreateUserComponent {
     this.userService.insertUser(userInfo).subscribe((user: any) => {
       console.log(user.nome, `inserido com sucesso!`);
     });
+
+    this.dialogRef.close();
+  }
+
+  updateUser() {
+    const userInfo: UserDTO = this.addUserForm.value;
+
+    this.userService
+      .editUser(this.currentUser.id, userInfo)
+      .subscribe((user: any) => {
+        console.log(user.nome, `modificado com sucesso!`);
+      });
+
+    this.dialogRef.close();
   }
 
   getErrorMessage(controlName: string) {

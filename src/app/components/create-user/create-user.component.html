@@ -1,7 +1,9 @@
 <div>
   <mat-card class="w-100">
     <mat-card-header class="d-flex justify-content-around mb-3">
-      <mat-card-title> Novo Usuário </mat-card-title>
+      <mat-card-title>
+        {{ editUser ? "Editar Usuário" : "Adicionar Usuário" }}
+      </mat-card-title>
       <button mat-flat-button color="secundary" [mat-dialog-close]>
         Fechar
       </button>
@@ -55,12 +57,23 @@
         </div>
 
         <button
+          *ngIf="!editUser"
           mat-flat-button
           color="primary"
           class="w-100"
           (click)="addUser()"
         >
-          Entrar
+          Adicionar
+        </button>
+        :
+        <button
+          *ngIf="editUser"
+          mat-flat-button
+          color="primary"
+          class="w-100"
+          (click)="updateUser()"
+        >
+          Editar
         </button>
       </form>
     </mat-card-content>
