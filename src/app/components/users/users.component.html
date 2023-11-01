@@ -23,14 +23,14 @@
             <mat-divider></mat-divider>
           </mat-card-content>
           <mat-card-actions>
-            <button
-              mat-flat-button
-              color="danger"
-              (click)="deleteUser(user.id)"
-            >
+            <button mat-flat-button (click)="deleteUser(user.id)">
               Excluir
             </button>
-            <button mat-flat-button (click)="openDialogCreateUser(user)">
+            <button
+              mat-flat-button
+              color="accent"
+              (click)="openDialogCreateUser(user)"
+            >
               Editar
             </button>
           </mat-card-actions>

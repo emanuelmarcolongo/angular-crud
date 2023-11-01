@@ -48,10 +48,12 @@ export class UsersComponent {
   }
 
   deleteUser(id: number) {
-    this.userService.deleteUser(id).subscribe((user: any) => {
-      this.userService.getUsers().subscribe((users: any) => {
-        this.users = users;
+    if (window.confirm('Tem certeza que deseja excluir o usuário?')) {
+      this.userService.deleteUser(id).subscribe((user: any) => {
+        this.userService.getUsers().subscribe((users: any) => {
+          this.users = users;
+        });
       });
-    });
+    }
   }
 }

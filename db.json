@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "name": "Carlos Emanuel de Souza Marcolongo",
-      "job": "Front-end Developer",
-      "email": "emanuelmarcolongo@gmail.com",
-      "type": "Administrador",
-      "salary": "123123",
-      "id": 3
-    },
-    {
       "name": "Carlos Mendes",
       "email": "carlos@email.com",
       "type": "USER",
