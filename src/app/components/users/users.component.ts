@@ -49,11 +49,9 @@ export class UsersComponent {
 
   deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe((user: any) => {
-      console.log(user.nome, `deletado com sucesso!`);
-    });
-
-    this.userService.getUsers().subscribe((users: any) => {
-      this.users = users;
+      this.userService.getUsers().subscribe((users: any) => {
+        this.users = users;
+      });
     });
   }
 }

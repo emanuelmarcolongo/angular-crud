@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UsersService } from 'src/app/service/users.service';
+import { UserDTO } from 'src/app/types/user.DTO';
 
 @Component({
   selector: 'app-create-user',
@@ -53,15 +54,7 @@ export class CreateUserComponent {
   }
 
   addUser() {
-    const userInfo = {
-      name: this.addUserForm.value.name,
-      job: this.addUserForm.value.job,
-      email: this.addUserForm.value.email,
-      salary: this.addUserForm.value.salary,
-      type: this.addUserForm.value.type,
-    };
-
-    console.log(userInfo);
+    const userInfo: UserDTO = this.addUserForm.value;
 
     this.userService.insertUser(userInfo).subscribe((user: any) => {
       console.log(user.nome, `inserido com sucesso!`);

@@ -17,14 +17,6 @@
       "job": "Project Manager123",
       "salary": "60000",
       "id": 5
-    },
-    {
-      "name": "Carlos Emanuel de Souza Marcolongo",
-      "job": "Front-end Developer",
-      "email": "emanuelmarcolongo@gmail.com",
-      "salary": "13123123123",
-      "type": "Administrador",
-      "id": 6
     }
   ]
 }

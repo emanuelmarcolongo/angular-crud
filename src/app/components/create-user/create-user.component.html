@@ -1,19 +1,15 @@
-<h1>MODAL ABERTA</h1>
-<div></div>
-<button mat-flat-button color="secundary" [mat-dialog-close]>
-  Cancelar Form
-</button>
-<button mat-flat-button color="primary">Enviar Form</button>
-
-<div class="h-100 bg-primary d-flex justify-content-center align-items-center">
+<div>
   <mat-card class="w-100">
-    <mat-card-header class="d-flex justify-content-center mb-3">
+    <mat-card-header class="d-flex justify-content-around mb-3">
       <mat-card-title> Novo Usuário </mat-card-title>
+      <button mat-flat-button color="secundary" [mat-dialog-close]>
+        Fechar
+      </button>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content class="d-flex">
       <p>Dados Pessoais:</p>
-      <form [formGroup]="addUserForm" class="d-flex flex-column">
-        <div>
+      <form [formGroup]="addUserForm" class="">
+        <div class="d-flex mr-6">
           <mat-form-field appearance="outline">
             <mat-label>Nome</mat-label>
             <input matInput formControlName="name" name="name" />
@@ -22,15 +18,6 @@
               {{addUserForm.controls['name'].errors?.['minLenght'] &&  getErrorMessage('minLenght') }}
               {{addUserForm.controls['name'].errors?.['maxLenght'] &&  getErrorMessage('maxLenght') }}
             </mat-error>
-          </mat-form-field>
-
-          <mat-form-field appearance="outline">
-            <mat-label>Cargo: </mat-label>
-            <mat-select formControlName="job" matNativeControl required>
-              <mat-option *ngFor="let job of jobOptions" [value]="job">
-                {{ job }}
-              </mat-option>
-            </mat-select>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
@@ -47,6 +34,16 @@
             <mat-select formControlName="type" matNativeControl required>
               <mat-option *ngFor="let type of userTypes" [value]="type">
                 {{ type }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-flex mx-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Cargo: </mat-label>
+            <mat-select formControlName="job" matNativeControl required>
+              <mat-option *ngFor="let job of jobOptions" [value]="job">
+                {{ job }}
               </mat-option>
             </mat-select>
           </mat-form-field>
