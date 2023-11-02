@@ -32,18 +32,26 @@ export class CreateUserComponent {
     public teamService: TeamService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    this.buildAddUserForm();
     teamService.getTeams().subscribe((teams) => {
       this.teams = teams;
     });
+
     if (data) {
       this.currentUser = data;
       this.editUser = true;
+      this.addUserForm.patchValue({
+        name: data.name,
+        job: data.job,
+        email: data.email,
+        type: data.type,
+        salary: data.salary,
+        teamId: data.teamId,
+      });
     } else {
       this.currentUser = null;
       this.editUser = false;
     }
-
-    this.buildAddUserForm();
   }
 
   buildAddUserForm() {

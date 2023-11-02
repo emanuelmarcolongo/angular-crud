@@ -1,45 +1,6 @@
-<div class="p-4 d-flex justify-content-end">
-  <button (click)="openDialogCreateUser()" mat-flat-button color="primary">
-    <mat-icon>add</mat-icon> Novo usuário
-  </button>
-
-  <!-- <div class="container">
-    <div class="row">
-      <div class="col-4" *ngFor="let user of users">
-        <mat-card class="mb-4">
-          <mat-card-header>
-            <mat-card-title>{{ user.name | uppercase }} </mat-card-title>
-            <mat-card-subtitle>{{ user.type }} </mat-card-subtitle>
-            <mat-card-subtitle>{{ user.job }} </mat-card-subtitle>
-            <mat-divider></mat-divider>
-          </mat-card-header>
-          <mat-card-content>
-            <p>Email: {{ user.email }}</p>
-
-            <p>
-              Salário:
-              {{ user.salary | currency : "BRL" : "symbol" : "1.2-2" }}
-            </p>
-
-            <mat-divider></mat-divider>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-flat-button (click)="deleteUser(user.id)">
-              Excluir
-            </button>
-            <button
-              mat-flat-button
-              color="accent"
-              (click)="openDialogCreateUser(user)"
-            >
-              Editar
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-    </div>
-  </div> -->
-</div>
+<button (click)="openDialogCreateUser()" mat-flat-button color="primary">
+  <mat-icon>add</mat-icon> Novo usuário
+</button>
 
 <div *ngFor="let team of teams">
   <mat-expansion-panel hideToggle>
