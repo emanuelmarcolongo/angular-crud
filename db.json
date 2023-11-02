@@ -1,37 +1,49 @@
 {
   "users": [
     {
-      "name": "Carlos Mendes",
-      "email": "carlos@email.com",
-      "type": "USER",
-      "password": "789",
-      "job": "Project Manager123",
-      "salary": "60000",
-      "id": 5
+      "name": null,
+      "job": null,
+      "email": null,
+      "type": null,
+      "salary": null,
+      "teamId": null,
+      "id": 2
     },
     {
-      "name": "Carlos Emanuel de Souza Marcolongo",
+      "name": "PEDRIN TÉK LIDI",
       "job": "Front-end Developer",
-      "email": "emanuelmarcolongo@gmail.com",
+      "email": "aegisthesword@gmail.com",
+      "type": "Administrador",
+      "salary": "13123123123",
+      "teamId": 1,
+      "id": 3
+    },
+    {
+      "name": "Fone de Ouvido",
+      "job": "Tech Lead",
+      "email": "manu@teste.com",
       "type": "Administrador",
       "salary": "123123",
-      "id": 6
+      "teamId": 1,
+      "id": 4
+    }
+  ],
+  "teams": [
+    {
+      "name": "Team 1",
+      "id": 1
     },
     {
-      "name": "Jãozin",
-      "job": "Front-end Developer",
-      "email": "123123@2342",
-      "type": "Usuário",
-      "salary": "123123",
-      "id": 7
+      "name": "Team 2",
+      "id": 2
     },
     {
-      "name": "Carlos Emanuel de Souza Marcolongo",
-      "job": "Front-end Developer",
-      "email": "emanuelmarcolongo@gmail.com",
-      "type": "Administrador",
-      "salary": "55222",
-      "id": 8
+      "name": "Team 3",
+      "id": 3
+    },
+    {
+      "name": "Team 4",
+      "id": 4
     }
   ]
 }

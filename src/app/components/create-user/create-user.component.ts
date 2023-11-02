@@ -1,11 +1,7 @@
 import { Component, Inject } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  MinLengthValidator,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { TeamService } from 'src/app/service/team/team.service';
 import { UsersService } from 'src/app/service/users.service';
 import { UserDTO } from 'src/app/types/user.DTO';
 
@@ -20,17 +16,25 @@ export class CreateUserComponent {
   editUser: boolean = false;
   userTypes: any = ['Administrador', 'Usuário'];
   jobOptions: any = [
+    'Tech Lead',
     'Front-end Developer',
     'Back-end Developer',
+    'Fullstack Developer',
     'QA Analyst',
     'Scrum Master',
-    'Fullstack Developer',
+    'Product Owner',
   ];
+  teams!: any;
+
   constructor(
     public dialogRef: MatDialogRef<CreateUserComponent>,
     public userService: UsersService,
+    public teamService: TeamService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    teamService.getTeams().subscribe((teams) => {
+      this.teams = teams;
+    });
     if (data) {
       this.currentUser = data;
       this.editUser = true;
@@ -57,11 +61,13 @@ export class CreateUserComponent {
       email: new FormControl(null, [Validators.required, Validators.email]),
       type: new FormControl(null, [Validators.required]),
       salary: new FormControl(null, [Validators.required]),
+      teamId: new FormControl(null, [Validators.required]),
     });
   }
 
   addUser() {
     const userInfo: UserDTO = this.addUserForm.value;
+    console.log(userInfo);
 
     this.userService.insertUser(userInfo).subscribe((user: any) => {
       console.log(user.nome, `inserido com sucesso!`);

@@ -3,7 +3,7 @@
     <mat-icon>add</mat-icon> Novo usuário
   </button>
 
-  <div class="container">
+  <!-- <div class="container">
     <div class="row">
       <div class="col-4" *ngFor="let user of users">
         <mat-card class="mb-4">
@@ -17,7 +17,8 @@
             <p>Email: {{ user.email }}</p>
 
             <p>
-              Salário: {{ user.salary | currency : "BRL" : "symbol" : "1.2-2" }}
+              Salário:
+              {{ user.salary | currency : "BRL" : "symbol" : "1.2-2" }}
             </p>
 
             <mat-divider></mat-divider>
@@ -37,5 +38,55 @@
         </mat-card>
       </div>
     </div>
-  </div>
+  </div> -->
+</div>
+
+<div *ngFor="let team of teams">
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ team.name }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ul class="d-flexz">
+      <div class="container">
+        <div class="row">
+          <div class="col-4" *ngFor="let user of users">
+            <ng-container *ngIf="user.teamId === team.id">
+              <mat-card class="mb-4">
+                <mat-card-header>
+                  <mat-card-title>{{ user.name | uppercase }} </mat-card-title>
+                  <mat-card-subtitle>{{ user.type }} </mat-card-subtitle>
+                  <mat-card-subtitle>{{ user.job }} </mat-card-subtitle>
+                  <mat-divider></mat-divider>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>Email: {{ user.email }}</p>
+
+                  <p>
+                    Salário:
+                    {{ user.salary | currency : "BRL" : "symbol" : "1.2-2" }}
+                  </p>
+
+                  <mat-divider></mat-divider>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-flat-button (click)="deleteUser(user.id)">
+                    Excluir
+                  </button>
+                  <button
+                    mat-flat-button
+                    color="accent"
+                    (click)="openDialogCreateUser(user)"
+                  >
+                    Editar
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ul>
+  </mat-expansion-panel>
 </div>
