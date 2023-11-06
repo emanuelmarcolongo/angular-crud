@@ -1,53 +1,57 @@
-<button (click)="openDialogCreateUser()" mat-flat-button color="primary">
-  <mat-icon>add</mat-icon> Novo usuário
-</button>
+<div class="d-flex flex-column m-4">
+  <button (click)="openDialogCreateUser()" mat-flat-button color="primary">
+    <mat-icon>add</mat-icon> Novo usuário
+  </button>
 
-<div *ngFor="let team of teams">
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{ team.name }}
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <ul class="d-flexz">
-      <div class="container">
-        <div class="row">
-          <div class="col-4" *ngFor="let user of users">
-            <ng-container *ngIf="user.teamId === team.id">
-              <mat-card class="mb-4">
-                <mat-card-header>
-                  <mat-card-title>{{ user.name | uppercase }} </mat-card-title>
-                  <mat-card-subtitle>{{ user.type }} </mat-card-subtitle>
-                  <mat-card-subtitle>{{ user.job }} </mat-card-subtitle>
-                  <mat-divider></mat-divider>
-                </mat-card-header>
-                <mat-card-content>
-                  <p>Email: {{ user.email }}</p>
+  <div *ngFor="let team of teams">
+    <mat-expansion-panel class="m-4">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="d-flex justify-content-center">
+          {{ team.name }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul class="">
+        <div class="container">
+          <div class="d-flex ml-4 p-4">
+            <div class="" *ngFor="let user of users">
+              <ng-container *ngIf="user.teamId === team.id">
+                <mat-card class="mb-4 m-4">
+                  <mat-card-header>
+                    <mat-card-title
+                      >{{ user.name | uppercase }}
+                    </mat-card-title>
+                    <mat-card-subtitle>{{ user.type }} </mat-card-subtitle>
+                    <mat-card-subtitle>{{ user.job }} </mat-card-subtitle>
+                    <mat-divider></mat-divider>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>Email: {{ user.email }}</p>
 
-                  <p>
-                    Salário:
-                    {{ user.salary | currency : "BRL" : "symbol" : "1.2-2" }}
-                  </p>
+                    <p>
+                      Salário:
+                      {{ user.salary | currency : "BRL" : "symbol" : "1.2-2" }}
+                    </p>
 
-                  <mat-divider></mat-divider>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-flat-button (click)="deleteUser(user.id)">
-                    Excluir
-                  </button>
-                  <button
-                    mat-flat-button
-                    color="accent"
-                    (click)="openDialogCreateUser(user)"
-                  >
-                    Editar
-                  </button>
-                </mat-card-actions>
-              </mat-card>
-            </ng-container>
+                    <mat-divider></mat-divider>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button mat-flat-button (click)="deleteUser(user.id)">
+                      Excluir
+                    </button>
+                    <button
+                      mat-flat-button
+                      color="accent"
+                      (click)="openDialogCreateUser(user)"
+                    >
+                      Editar
+                    </button>
+                  </mat-card-actions>
+                </mat-card>
+              </ng-container>
+            </div>
           </div>
         </div>
-      </div>
-    </ul>
-  </mat-expansion-panel>
+      </ul>
+    </mat-expansion-panel>
+  </div>
 </div>
