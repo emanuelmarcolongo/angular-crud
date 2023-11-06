@@ -9,8 +9,9 @@
           <mat-label>E-mail</mat-label>
           <input matInput formControlName="email" name="email" />
 
-          <mat-error>{{loginForm.controls['email'].errors?.['email'] ? 'Insira um formato de email válido' : loginForm.controls['email'].errors?.['required'] ? 'Campo Obrigatório' : '' }}</mat-error>
-          
+          <mat-error
+            >{{loginForm.controls['email'].errors?.['email'] ? 'Insira um formato de email válido' : loginForm.controls['email'].errors?.['required'] ? 'Campo Obrigatório' : '' }}</mat-error
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Senha</mat-label>
@@ -18,13 +19,12 @@
           <mat-error>
             {{loginForm.controls['password'].errors?.['required'] ? 'Campo Obrigatório!' : ''}}
           </mat-error>
-          
         </mat-form-field>
         <button
           mat-flat-button
           color="primary"
           class="w-100"
-          (click)="login()"
+          (click)="userLogin()"
         >
           Entrar
         </button>

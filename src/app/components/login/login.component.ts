@@ -14,7 +14,21 @@ export class LoginComponent {
   loginForm!: FormGroup;
 
   constructor(private userService: UsersService) {
+    this.userService.getUsers().subscribe((users: any) => {
+      this.users = users;
+    });
+
     this.buildLoginForm();
+  }
+
+  ngOnInit(): void {
+    const authenticatedUser = JSON.parse(
+      localStorage.getItem('User') || 'null'
+    );
+
+    if (authenticatedUser) {
+      this.user = authenticatedUser;
+    }
   }
 
   buildLoginForm() {
@@ -24,12 +38,23 @@ export class LoginComponent {
     });
   }
 
-  login() {
+  userLogin() {
     this.user = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-    this.loginEmitter.emit(this.user);
-    console.log(this.loginForm.value);
+
+    const userExists: any | undefined = this.users?.find(
+      (u: any) =>
+        u.email === this.user.email && this.user.password === u.password
+    );
+
+    if (userExists) {
+      console.log('Usuário autenticado!', userExists);
+      this.user = userExists;
+      localStorage.setItem('User', JSON.stringify(this.user));
+    } else {
+      console.log('Usuário não autenticado!');
+    }
   }
 }

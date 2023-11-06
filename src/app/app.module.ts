@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { MatSelectModule } from '@angular/material/select';
 import { AngularMaterialModule } from './utils/angular-material.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AngularMaterialModule } from './utils/angular-material.module';
     NgbModule,
     HttpClientModule,
     MatSelectModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

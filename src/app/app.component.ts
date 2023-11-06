@@ -26,18 +26,4 @@ export class AppComponent implements OnInit {
       this.user = authenticatedUser;
     }
   }
-
-  userLogin(user: any) {
-    const userExists: any | undefined = this.users?.find(
-      (u) => u.email === user.email && user.password === u.password
-    );
-
-    if (userExists) {
-      console.log('Usuário autenticado!', userExists);
-      this.user = userExists;
-      localStorage.setItem('User', JSON.stringify(this.user));
-    } else {
-      console.log('Usuário não autenticado!');
-    }
-  }
 }
