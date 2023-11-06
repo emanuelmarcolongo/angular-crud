@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsersService } from 'src/app/service/users.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent {
   user: any;
   loginForm!: FormGroup;
 
-  constructor(private userService: UsersService) {
+  constructor(private userService: UsersService, private router: Router) {
     this.userService.getUsers().subscribe((users: any) => {
       this.users = users;
     });
@@ -28,6 +29,7 @@ export class LoginComponent {
 
     if (authenticatedUser) {
       this.user = authenticatedUser;
+      this.router.navigate(['/users']);
     }
   }
 
@@ -44,15 +46,16 @@ export class LoginComponent {
       password: this.loginForm.value.password,
     };
 
-    const userExists: any | undefined = this.users?.find(
+    const authenticatedUser: any | undefined = this.users?.find(
       (u: any) =>
         u.email === this.user.email && this.user.password === u.password
     );
 
-    if (userExists) {
-      console.log('Usuário autenticado!', userExists);
-      this.user = userExists;
+    if (authenticatedUser) {
+      console.log('Usuário autenticado!', authenticatedUser);
+      this.user = authenticatedUser;
       localStorage.setItem('User', JSON.stringify(this.user));
+      this.router.navigate(['/users']);
     } else {
       console.log('Usuário não autenticado!');
     }
