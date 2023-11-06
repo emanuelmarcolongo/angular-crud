@@ -30,6 +30,14 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput formControlName="password" name="password" />
+            <mat-error>
+              {{addUserForm.controls['password'].errors?.['required'] && getErrorMessage('required')}}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
             <mat-label>Tipo: </mat-label>
             <mat-select formControlName="type" matNativeControl required>
               <mat-option *ngFor="let type of userTypes" [value]="type">

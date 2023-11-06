@@ -71,6 +71,7 @@ export class CreateUserComponent {
       type: new FormControl(null, [Validators.required]),
       salary: new FormControl(null, [Validators.required]),
       teamId: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required]),
     });
   }
 

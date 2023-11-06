@@ -3,65 +3,12 @@
     {
       "name": "Carlos Emanuel de Souza Marcolongo",
       "job": "Fullstack Developer",
-      "email": "emanuelmarcolongo@gmail.com",
-      "type": "Administrador",
-      "salary": "13123123123",
+      "email": "manu@teste.com",
+      "type": "Usuário",
+      "salary": "123123",
       "teamId": 1,
+      "password": "123",
       "id": 1
-    },
-    {
-      "name": "Fone de Ouvido",
-      "job": "Tech Lead",
-      "email": "aegisthesword@gmail.com",
-      "type": "Usuário",
-      "salary": "13123123123",
-      "teamId": 3,
-      "id": 2
-    },
-    {
-      "name": "Carlos Emanuel de Souza Marcolongo",
-      "job": "Tech Lead",
-      "email": "emanuelmarcolongo@gmail.com",
-      "type": "Administrador",
-      "salary": "123123",
-      "teamId": 1,
-      "id": 3
-    },
-    {
-      "name": "31231",
-      "job": "Tech Lead",
-      "email": "123123123123@123",
-      "type": "Usuário",
-      "salary": "55222",
-      "teamId": 3,
-      "id": 4
-    },
-    {
-      "name": "Fone de Ouvido",
-      "job": "Front-end Developer",
-      "email": "manu@teste.com",
-      "type": "Usuário",
-      "salary": "55222",
-      "teamId": 4,
-      "id": 5
-    },
-    {
-      "name": "Batata",
-      "job": "Scrum Master",
-      "email": "manu@teste.com",
-      "type": "Usuário",
-      "salary": "123123",
-      "teamId": 4,
-      "id": 6
-    },
-    {
-      "name": "Fone de Ouvido",
-      "job": "Fullstack Developer",
-      "email": "emanuelmarcolongo.dev@gmail.com",
-      "type": "Usuário",
-      "salary": "13123123123",
-      "teamId": 3,
-      "id": 7
     }
   ],
   "teams": [
