@@ -15,7 +15,7 @@
       "email": "aegisthesword@gmail.com",
       "type": "Usuário",
       "salary": "13123123123",
-      "teamId": 1,
+      "teamId": 3,
       "id": 2
     },
     {
@@ -44,6 +44,24 @@
       "salary": "55222",
       "teamId": 4,
       "id": 5
+    },
+    {
+      "name": "Batata",
+      "job": "Scrum Master",
+      "email": "manu@teste.com",
+      "type": "Usuário",
+      "salary": "123123",
+      "teamId": 4,
+      "id": 6
+    },
+    {
+      "name": "Fone de Ouvido",
+      "job": "Fullstack Developer",
+      "email": "emanuelmarcolongo.dev@gmail.com",
+      "type": "Usuário",
+      "salary": "13123123123",
+      "teamId": 3,
+      "id": 7
     }
   ],
   "teams": [

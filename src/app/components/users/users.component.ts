@@ -4,6 +4,7 @@ import { CreateUserComponent } from '../create-user/create-user.component';
 import { UsersService } from 'src/app/service/users.service';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import { TeamService } from 'src/app/service/team/team.service';
+import { Team } from 'src/app/types/team.type';
 
 @Component({
   selector: 'app-users',
@@ -13,7 +14,7 @@ import { TeamService } from 'src/app/service/team/team.service';
 export class UsersComponent {
   @Input() public user?: any;
   @Input() public users?: any;
-  teams!: any;
+  teams!: Team[];
 
   constructor(
     private dialog: MatDialog,

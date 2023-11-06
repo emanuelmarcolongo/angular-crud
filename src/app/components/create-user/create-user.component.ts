@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TeamService } from 'src/app/service/team/team.service';
 import { UsersService } from 'src/app/service/users.service';
+import { Team } from 'src/app/types/team.type';
 import { UserDTO } from 'src/app/types/user.DTO';
 
 @Component({
@@ -24,7 +25,7 @@ export class CreateUserComponent {
     'Scrum Master',
     'Product Owner',
   ];
-  teams!: any;
+  teams!: Team[];
 
   constructor(
     public dialogRef: MatDialogRef<CreateUserComponent>,

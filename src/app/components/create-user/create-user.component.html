@@ -4,9 +4,7 @@
       <mat-card-title>
         {{ editUser ? "Editar Usuário" : "Adicionar Usuário" }}
       </mat-card-title>
-      <button mat-flat-button color="secundary" [mat-dialog-close]>
-        Fechar
-      </button>
+      <button mat-flat-button color="accent" [mat-dialog-close]>Fechar</button>
     </mat-card-header>
     <mat-card-content class="d-flex">
       <p>Dados Pessoais:</p>
@@ -69,7 +67,7 @@
           [disabled]="addUserForm.invalid"
           *ngIf="!editUser"
           mat-flat-button
-          color="primary"
+          color="accent"
           class="w-100"
           (click)="addUser()"
         >
