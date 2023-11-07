@@ -1,5 +1,5 @@
 <div class="d-flex flex-column m-4">
-  <button (click)="openDialogCreateUser()" mat-flat-button color="accent">
+  <button routerLink="/createUser" mat-flat-button color="accent">
     <mat-icon>add</mat-icon> Novo usuário
   </button>
 
@@ -41,7 +41,7 @@
                     <button
                       mat-flat-button
                       color="accent"
-                      (click)="openDialogCreateUser(user)"
+                      (click)="openDialogEditUser(user)"
                     >
                       Editar
                     </button>

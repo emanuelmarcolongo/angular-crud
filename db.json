@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "name": "Carlos Emanuel de Souza Marcolongo",
+      "name": "Marcolongo123",
       "job": "Fullstack Developer",
       "email": "manu@teste.com",
       "type": "Usuário",
@@ -9,6 +9,45 @@
       "teamId": 1,
       "password": "123",
       "id": 1
+    },
+    {
+      "name": "Manu",
+      "job": "Tech Lead",
+      "email": "emanuelmarcolongo@gmail.com",
+      "type": "Usuário",
+      "salary": "123123",
+      "teamId": 3,
+      "password": "123",
+      "id": 3
+    },
+    {
+      "name": "Manu",
+      "job": "Tech Lead",
+      "email": "123123123123@123",
+      "type": "Administrador",
+      "salary": "123123",
+      "teamId": 2,
+      "password": "123123",
+      "id": 4
+    },
+    {
+      "name": "Fone de Ouvido123",
+      "job": "Tech Lead",
+      "email": "emanuelmarcolongo@gmail.com",
+      "password": "123",
+      "salary": "123123",
+      "type": "User",
+      "id": 5
+    },
+    {
+      "name": "Manuuu1234",
+      "job": "Tech Lead",
+      "email": "manu@teste.com",
+      "type": "Administrador",
+      "salary": "123123",
+      "teamId": 1,
+      "password": "123",
+      "id": 6
     }
   ],
   "teams": [

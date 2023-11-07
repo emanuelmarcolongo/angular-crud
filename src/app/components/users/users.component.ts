@@ -26,8 +26,14 @@ export class UsersComponent {
     });
   }
 
-  openDialogCreateUser(user?: any) {
-    const dialogRef = this.dialog.open(CreateUserComponent, {
+  ngOnInit() {
+    this.userService.getUsers().subscribe((users: any) => {
+      this.users = users;
+    });
+  }
+
+  openDialogEditUser(user: any) {
+    const dialogRef = this.dialog.open(EditUserComponent, {
       data: user,
       disableClose: true,
       width: '80%',
@@ -41,20 +47,6 @@ export class UsersComponent {
       this.userService.getUsers().subscribe((users: any) => {
         this.users = users;
       });
-    });
-  }
-
-  openDialogEditUser(id: number) {
-    const dialogRef = this.dialog.open(EditUserComponent, {
-      data: { id },
-      disableClose: true,
-      width: '80%',
-    });
-
-    dialogRef.afterClosed().subscribe((devolutivaModal: any) => {
-      if (devolutivaModal) {
-        console.log('devolutiva MOdal', devolutivaModal);
-      }
     });
   }
 

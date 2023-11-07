@@ -6,7 +6,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { TeamService } from 'src/app/service/team/team.service';
 import { UsersService } from 'src/app/service/users.service';
+import { Team } from 'src/app/types/team.type';
+import { UserDTO } from 'src/app/types/user.DTO';
 
 @Component({
   selector: 'app-edit-user',
@@ -17,13 +20,40 @@ export class EditUserComponent {
   editUserForm!: FormGroup;
   user!: any;
   id!: number;
+  userTypes: any = ['Administrador', 'Usuário'];
+  jobOptions: any = [
+    'Tech Lead',
+    'Front-end Developer',
+    'Back-end Developer',
+    'Fullstack Developer',
+    'QA Analyst',
+    'Scrum Master',
+    'Product Owner',
+  ];
+
+  teams!: Team[];
   constructor(
     public dialogRef: MatDialogRef<EditUserComponent>,
     public userService: UsersService,
-    @Inject(MAT_DIALOG_DATA) public data: { id: number }
+    public teamService: TeamService,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    console.log('data: ', data);
     this.id = data.id;
+    teamService.getTeams().subscribe((teams) => {
+      this.teams = teams;
+    });
     this.buildEditUserForm();
+
+    this.editUserForm.patchValue({
+      password: data.password,
+      name: data.name,
+      job: data.job,
+      email: data.email,
+      type: data.type,
+      salary: data.salary,
+      teamId: data.teamId,
+    });
   }
 
   buildEditUserForm() {
@@ -39,28 +69,21 @@ export class EditUserComponent {
         Validators.maxLength(30),
       ]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(12),
-      ]),
+      type: new FormControl(null, [Validators.required]),
       salary: new FormControl(null, [Validators.required]),
+      teamId: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required]),
     });
   }
 
   editUser() {
-    const userInfo = {
-      name: this.editUserForm.value.name,
-      job: this.editUserForm.value.job,
-      email: this.editUserForm.value.email,
-      password: this.editUserForm.value.password,
-      salary: this.editUserForm.value.salary,
-      type: 'User',
-    };
+    const userInfo: UserDTO = this.editUserForm.value;
 
     this.userService.editUser(this.id, userInfo).subscribe((user: any) => {
       console.log(user.nome, `modificado com sucesso!`);
     });
+
+    this.dialogRef.close();
   }
 
   getErrorMessage(controlName: string) {

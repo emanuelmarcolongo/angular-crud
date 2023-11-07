@@ -81,17 +81,6 @@
         >
           Adicionar
         </button>
-        :
-        <button
-          [disabled]="addUserForm.invalid"
-          *ngIf="editUser"
-          mat-flat-button
-          color="primary"
-          class="w-100"
-          (click)="updateUser()"
-        >
-          Editar
-        </button>
       </form>
     </mat-card-content>
   </mat-card>

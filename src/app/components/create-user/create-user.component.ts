@@ -28,31 +28,13 @@ export class CreateUserComponent {
   teams!: Team[];
 
   constructor(
-    public dialogRef: MatDialogRef<CreateUserComponent>,
     public userService: UsersService,
-    public teamService: TeamService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    public teamService: TeamService
   ) {
     this.buildAddUserForm();
     teamService.getTeams().subscribe((teams) => {
       this.teams = teams;
     });
-
-    if (data) {
-      this.currentUser = data;
-      this.editUser = true;
-      this.addUserForm.patchValue({
-        name: data.name,
-        job: data.job,
-        email: data.email,
-        type: data.type,
-        salary: data.salary,
-        teamId: data.teamId,
-      });
-    } else {
-      this.currentUser = null;
-      this.editUser = false;
-    }
   }
 
   buildAddUserForm() {
@@ -82,20 +64,6 @@ export class CreateUserComponent {
     this.userService.insertUser(userInfo).subscribe((user: any) => {
       console.log(user.nome, `inserido com sucesso!`);
     });
-
-    this.dialogRef.close();
-  }
-
-  updateUser() {
-    const userInfo: UserDTO = this.addUserForm.value;
-
-    this.userService
-      .editUser(this.currentUser.id, userInfo)
-      .subscribe((user: any) => {
-        console.log(user.nome, `modificado com sucesso!`);
-      });
-
-    this.dialogRef.close();
   }
 
   getErrorMessage(controlName: string) {
