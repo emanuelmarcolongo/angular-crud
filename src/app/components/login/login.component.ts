@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/service/users.service';
+import { UserEntity } from 'src/app/types/user.entity';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent {
   loginForm!: FormGroup;
 
   constructor(private userService: UsersService, private router: Router) {
-    this.userService.getUsers().subscribe((users: any) => {
+    this.userService.getUsers().subscribe((users: UserEntity) => {
       this.users = users;
     });
 
@@ -46,8 +47,8 @@ export class LoginComponent {
       password: this.loginForm.value.password,
     };
 
-    const authenticatedUser: any | undefined = this.users?.find(
-      (u: any) =>
+    const authenticatedUser: UserEntity | undefined = this.users?.find(
+      (u: UserEntity) =>
         u.email === this.user.email && this.user.password === u.password
     );
 

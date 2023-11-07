@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from './service/users.service';
+import { UserEntity } from './types/user.entity';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,11 @@ import { UsersService } from './service/users.service';
 })
 export class AppComponent implements OnInit {
   title = 'angular-crud';
-  user?: any;
-  users?: any[];
+  user?: UserEntity;
+  users?: UserEntity[];
 
   constructor(private userService: UsersService) {
-    this.userService.getUsers().subscribe((users: any) => {
+    this.userService.getUsers().subscribe((users: UserEntity[] | []) => {
       this.users = users;
     });
   }

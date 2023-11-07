@@ -13,10 +13,10 @@ import { UserDTO } from 'src/app/types/user.DTO';
 })
 export class CreateUserComponent {
   addUserForm!: FormGroup;
-  currentUser!: any;
+  currentUser!: UserDTO;
   createSucess!: boolean;
-  userTypes: any = ['Administrador', 'Usuário'];
-  jobOptions: any = [
+  userTypes: string[] = ['Administrador', 'Usuário'];
+  jobOptions: string[] = [
     'Tech Lead',
     'Front-end Developer',
     'Back-end Developer',

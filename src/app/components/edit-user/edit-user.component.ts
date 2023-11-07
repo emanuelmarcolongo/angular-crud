@@ -10,6 +10,7 @@ import { TeamService } from 'src/app/service/team/team.service';
 import { UsersService } from 'src/app/service/users.service';
 import { Team } from 'src/app/types/team.type';
 import { UserDTO } from 'src/app/types/user.DTO';
+import { UserEntity } from 'src/app/types/user.entity';
 
 @Component({
   selector: 'app-edit-user',
@@ -18,10 +19,10 @@ import { UserDTO } from 'src/app/types/user.DTO';
 })
 export class EditUserComponent {
   editUserForm!: FormGroup;
-  user!: any;
+  user!: UserEntity;
   id!: number;
-  userTypes: any = ['Administrador', 'Usuário'];
-  jobOptions: any = [
+  userTypes: string[] = ['Administrador', 'Usuário'];
+  jobOptions: string[] = [
     'Tech Lead',
     'Front-end Developer',
     'Back-end Developer',
