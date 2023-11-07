@@ -1,15 +1,19 @@
 <div>
   <mat-card class="w-100">
     <mat-card-header class="d-flex justify-content-around mb-3">
-      <mat-card-title>
-        {{ editUser ? "Editar Usuário" : "Adicionar Usuário" }}
-      </mat-card-title>
-      <button mat-flat-button color="accent" [mat-dialog-close]>Fechar</button>
+      <mat-card-title> Adicionar Usuário </mat-card-title>
+      <button
+        routerLink="/users"
+        mat-flat-button
+        color="accent"
+        [mat-dialog-close]
+      >
+        < Voltar para página anterior
+      </button>
     </mat-card-header>
-    <mat-card-content class="d-flex">
-      <p>Dados Pessoais:</p>
+    <mat-card-content class="d-flex justify-content-around">
       <form [formGroup]="addUserForm" class="">
-        <div class="d-flex mr-6">
+        <div class="d-flex justify-content-between">
           <mat-form-field appearance="outline">
             <mat-label>Nome</mat-label>
             <input matInput formControlName="name" name="name" />
@@ -45,22 +49,22 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+        </div>
+        <div class="d-flex mx-6 justify-content-between">
+          <mat-form-field appearance="outline">
+            <mat-label>Cargo: </mat-label>
+            <mat-select formControlName="job" matNativeControl required>
+              <mat-option *ngFor="let job of jobOptions" [value]="job">
+                {{ job }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Time </mat-label>
             <mat-select formControlName="teamId" matNativeControl required>
               <mat-option *ngFor="let team of teams" [value]="team.id">
                 {{ team.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="d-flex mx-6">
-          <mat-form-field appearance="outline">
-            <mat-label>Cargo: </mat-label>
-            <mat-select formControlName="job" matNativeControl required>
-              <mat-option *ngFor="let job of jobOptions" [value]="job">
-                {{ job }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -73,7 +77,6 @@
 
         <button
           [disabled]="addUserForm.invalid"
-          *ngIf="!editUser"
           mat-flat-button
           color="accent"
           class="w-100"
@@ -81,6 +84,8 @@
         >
           Adicionar
         </button>
+
+        <p class="" *ngIf="createSucess">Usuário inserido com sucesso!</p>
       </form>
     </mat-card-content>
   </mat-card>

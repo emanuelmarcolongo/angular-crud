@@ -16,7 +16,7 @@
       "email": "emanuelmarcolongo@gmail.com",
       "type": "Usuário",
       "salary": "123123",
-      "teamId": 3,
+      "teamId": 1,
       "password": "123",
       "id": 3
     },
@@ -48,6 +48,26 @@
       "teamId": 1,
       "password": "123",
       "id": 6
+    },
+    {
+      "name": "Carlos Emanuel de Souza Marcolongo",
+      "job": "Tech Lead",
+      "email": "emanuelmarcolongo@gmail.com",
+      "type": "Usuário",
+      "salary": "123123",
+      "teamId": 2,
+      "password": "123",
+      "id": 7
+    },
+    {
+      "name": "emanuzelda",
+      "job": "Back-end Developer",
+      "email": "emanuelmarcolongo@gmail.com",
+      "type": "Administrador",
+      "salary": "55222",
+      "teamId": 1,
+      "password": "123",
+      "id": 8
     }
   ],
   "teams": [

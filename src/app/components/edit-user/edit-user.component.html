@@ -71,20 +71,9 @@
 
         <button
           [disabled]="editUserForm.invalid"
-          *ngIf="!editUser"
-          mat-flat-button
-          color="accent"
-          class="w-100"
-          (click)="editUser()"
-        >
-          Adicionar
-        </button>
-        :
-        <button
-          [disabled]="editUserForm.invalid"
           *ngIf="editUser"
           mat-flat-button
-          color="primary"
+          color="accent"
           class="w-100"
           (click)="editUser()"
         >

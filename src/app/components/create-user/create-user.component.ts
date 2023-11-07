@@ -14,7 +14,7 @@ import { UserDTO } from 'src/app/types/user.DTO';
 export class CreateUserComponent {
   addUserForm!: FormGroup;
   currentUser!: any;
-  editUser: boolean = false;
+  createSucess!: boolean;
   userTypes: any = ['Administrador', 'Usuário'];
   jobOptions: any = [
     'Tech Lead',
@@ -31,6 +31,7 @@ export class CreateUserComponent {
     public userService: UsersService,
     public teamService: TeamService
   ) {
+    this.createSucess = false;
     this.buildAddUserForm();
     teamService.getTeams().subscribe((teams) => {
       this.teams = teams;
@@ -58,11 +59,13 @@ export class CreateUserComponent {
   }
 
   addUser() {
+    this.createSucess = false;
     const userInfo: UserDTO = this.addUserForm.value;
     console.log(userInfo);
 
     this.userService.insertUser(userInfo).subscribe((user: any) => {
-      console.log(user.nome, `inserido com sucesso!`);
+      console.log('Usuário: ', user.name, `inserido com sucesso!`);
+      this.createSucess = true;
     });
   }
 

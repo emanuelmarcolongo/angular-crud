@@ -32,6 +32,7 @@ export class EditUserComponent {
   ];
 
   teams!: Team[];
+
   constructor(
     public dialogRef: MatDialogRef<EditUserComponent>,
     public userService: UsersService,
