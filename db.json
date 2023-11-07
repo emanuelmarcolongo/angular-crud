@@ -11,26 +11,6 @@
       "id": 1
     },
     {
-      "name": "Manu",
-      "job": "Tech Lead",
-      "email": "emanuelmarcolongo@gmail.com",
-      "type": "Usuário",
-      "salary": "123123",
-      "teamId": 2,
-      "password": "123",
-      "id": 3
-    },
-    {
-      "name": "Manu",
-      "job": "Tech Lead",
-      "email": "123123123123@123",
-      "type": "Administrador",
-      "salary": "123123",
-      "teamId": 2,
-      "password": "123123",
-      "id": 4
-    },
-    {
       "name": "Fone de Ouvido123",
       "job": "Tech Lead",
       "email": "emanuelmarcolongo@gmail.com",
@@ -50,24 +30,24 @@
       "id": 6
     },
     {
-      "name": "Carlos Emanuel de Souza Marcolongo",
-      "job": "Tech Lead",
-      "email": "emanuelmarcolongo@gmail.com",
-      "type": "Usuário",
-      "salary": "123123",
-      "teamId": 2,
-      "password": "123",
-      "id": 7
-    },
-    {
-      "name": "emanuzelda",
+      "name": "emanu111",
       "job": "Back-end Developer",
       "email": "emanuelmarcolongo@gmail.com",
       "type": "Administrador",
       "salary": "55222",
-      "teamId": 1,
+      "teamId": 2,
       "password": "123",
       "id": 8
+    },
+    {
+      "name": "Fone de Ouvido",
+      "job": "Tech Lead",
+      "email": "manu@teste.com",
+      "type": "Administrador",
+      "salary": "123123",
+      "teamId": 2,
+      "password": "123123",
+      "id": 9
     }
   ],
   "teams": [
